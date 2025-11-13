@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BCON TECH — Home</title>
+  <meta name="description" content="BCON TECH — Technology services" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue-900:#04263f; /* deep */
+      --blue-700:#0b66a3; /* primary */
+      --blue-500:#1f8ed3; /* accent */
+      --white:#ffffff;
+      --black:#071017;
+      --glass: rgba(255,255,255,0.06);
+      --card-shadow: 0 10px 30px rgba(3,18,30,0.45);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:var(--white);
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(31,142,211,0.08), transparent 8%),
+                  radial-gradient(900px 400px at 85% 80%, rgba(11,102,163,0.06), transparent 8%),
+                  linear-gradient(180deg,var(--blue-900), #07223a 60%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Techy circuit background using SVG data-URI */
+    .bg-pattern::before{
+      content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.25;background-image:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%230b66a3" stop-opacity="0.25"/><stop offset="1" stop-color="%231f8ed3" stop-opacity="0.05"/></linearGradient></defs><g fill="none" stroke="%230b66a3" stroke-opacity="0.08" stroke-width="2"><path d="M0 120h300v120M120 0v300M400 0v120h600v60M1600 200h-300v100"/><path d="M200 600h400v80M900 450h600v120M1200 0v200M50 800h700"/></g><g fill="%231f8ed3" fill-opacity="0.06"><circle cx="120" cy="80" r="4"/><circle cx="600" cy="220" r="3"/><circle cx="980" cy="120" r="3"/><circle cx="1380" cy="520" r="3"/></g></svg>');
+      background-repeat:repeat;
+      transform:scale(1.15);
+      mix-blend-mode:overlay;
+    }
+
+    header{position:relative;z-index:10;padding:24px 40px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:56px;height:56px;border-radius:8px;background:linear-gradient(180deg,var(--blue-700),var(--blue-500));display:flex;align-items:center;justify-content:center;box-shadow: 0 6px 16px rgba(0,0,0,0.35)}
+    .logo h1{margin:0;font-size:20px;letter-spacing:1px;font-weight:800;color:var(--white)}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:rgba(255,255,255,0.85);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.04)}
+
+    .hero{min-height:320px;display:flex;align-items:center;gap:32px;padding:36px 40px 48px;position:relative;z-index:5}
+    .hero-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:28px;width:100%}
+    .brand-left{flex:0 0 360px}
+    .brand-left .big-mark{width:220px;height:220px;border-radius:16px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;box-shadow:var(--card-shadow);}
+    .brand-left svg{width:160px;height:160px}
+
+    .brand-right{flex:1;color:var(--white)}
+    .title{font-size:64px;line-height:1;font-weight:800;margin:0 0 8px}
+    .subtitle{margin:0 0 18px;font-weight:400;opacity:0.9}
+    .cta{display:flex;gap:12px}
+
+    /* Services */
+    main{position:relative;z-index:5;padding:24px 40px 80px}
+    section{padding:56px 0}
+    h2.section-title{font-size:28px;margin:0 0 18px;color:var(--white)}
+
+    .services-grid{display:flex;gap:20px;flex-wrap:wrap}
+    .service-card{flex:1 1 calc(33.333% - 20px);min-width:240px;background:var(--glass);padding:22px;border-radius:14px;box-shadow:var(--card-shadow);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03)}
+    .service-card h3{margin:0 0 8px;font-size:18px}
+    .service-card p{margin:0;color:rgba(255,255,255,0.9);line-height:1.4}
+
+    /* Contact */
+    .contact-card{max-width:720px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:var(--card-shadow)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white)}
+    button.primary{background:var(--blue-500);border:none;padding:12px 16px;border-radius:8px;color:var(--white);font-weight:700;cursor:pointer}
+
+    footer{padding:28px 40px;text-align:center;color:rgba(255,255,255,0.6);font-size:14px}
+
+    /* LinkedIn safe area hint */
+    @media (max-width:900px){
+      .title{font-size:38px}
+      .brand-left{display:none}
+      .service-card{flex:1 1 100%}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    /* subtle animated nodes to feel techy */
+    .nodes{position:absolute;inset:0;z-index:1;pointer-events:none}
+    .node{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--blue-500);opacity:0.7;box-shadow:0 0 12px rgba(31,142,211,0.7);animation:float 6s ease-in-out infinite}
+    .node.n2{width:4px;height:4px;animation-duration:5s}
+    .node.n3{width:8px;height:8px;animation-duration:7s}
+    @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-10px) translateX(6px)}100%{transform:translateY(0) translateX(0)}}
+
+  </style>
+</head>
+<body class="bg-pattern">
+  <header>
+    <div class="logo">
+      <div class="mark" aria-hidden="true">
+        <!-- simple mark, can replace with your SVG logo -->
+        <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 80v-30a18 18 0 0 1 18-18h6" opacity="0.95"/>
+            <path d="M28 62h32" opacity="0.9"/>
+            <circle cx="70" cy="25" r="6" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <h1>BCON TECH</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="brand-left">
+        <div class="big-mark">
+          <!-- big logo placeholder -->
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40 260v-90a40 40 0 0 1 40-40h14"/>
+              <path d="M80 220h120"/>
+              <path d="M120 260v-60"/>
+            </g>
+            <circle cx="260" cy="60" r="18" fill="rgba(255,255,255,0.12)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="brand-right">
+        <h2 class="title">BCON TECH</h2>
+        <p class="subtitle">Technology solutions • Systems integration • Cloud & Security</p>
+        <div class="cta">
+          <a class="primary" href="#contact" style="background:var(--blue-500);text-decoration:none;color:var(--white);padding:10px 14px;border-radius:10px;">Contact Us</a>
+          <a href="#services" style="background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;text-decoration:none;color:rgba(255,255,255,0.9)">Our Services</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nodes" aria-hidden="true">
+      <div class="node" style="left:18%;top:20%"></div>
+      <div class="node n2" style="left:42%;top:36%"></div>
+      <div class="node n3" style="left:72%;top:14%"></div>
+      <div class="node n2" style="left:86%;top:60%"></div>
+    </div>
+  </div>
+
+  <main>
+    <section id="about">
+      <h2 class="section-title">About Us</h2>
+      <p style="max-width:900px;color:rgba(255,255,255,0.9);line-height:1.6">BCON Tech is a dynamic, 100% Black-owned contracting company operating within the Information Technology and Communications (ITC) sector. We are dedicated to building lasting partnerships with our clients, ensuring that BCON Tech remains their preferred choice for reliable and innovative contracting solutions.
+
+Our company specializes in providing highly skilled ITC professionals on a contractual basis, delivering exceptional service quality and technical expertise to meet diverse business needs. At BCON Tech, we are committed to fostering long-term client relationships while addressing their technical and operational requirements with precision and excellence.
+
+We proudly offer our services to clients across the Republic of South Africa.</p>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid" id="services-grid">
+        <!-- cards populated by JSON below -->
+        <div class="service-card">
+          <h3>Strategic IT Consulting</h3>
+          <p>Creating a long-term IT strategy aligned with business goals.</p>
+        </div>
+        <div class="service-card">
+          <h3>Service Two</h3>
+          <p>Short description about service two. Replace with your content.</p>
+        </div>
+        <div class="service-card">
+          <h3>Service Three</h3>
+          <p>Short description about service three. Replace with your content.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+          <div style="font-weight:700">Get in touch</div>
+          <div style="color:rgba(255,255,255,0.7)">Email: <a href="mailto:contact.bcontech@gmail.com" style="color:var(--white);text-decoration:underline">contact.bcontech@gmail.com</a> &nbsp;|&nbsp; Web: <a href="https://www.bcontech.co.za" style="color:var(--white);text-decoration:underline">www.bcontech.co.za</a></div>
+        </div>
+
+        <form onsubmit="event.preventDefault();alert('Thanks! This is a demo form. Replace with your backend endpoint.');">
+          <div class="contact-grid">
+            <input type="text" placeholder="Your name" required />
+            <input type="email" placeholder="Your email" required />
+            <textarea placeholder="Message" rows="4" style="grid-column:1/3"></textarea>
+          </div>
+          <div style="margin-top:12px;text-align:right">
+            <button class="primary" type="submit">Send message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year">2025</span> BCON TECH (PTY) LTD — Built with care
+  </footer>
+
+  <!-- Site data (JSON) — edit this to change the services content programmatically -->
+  <script type="application/json" id="site-data">
+  {
+    "company": {
+      "name": "BCON TECH (PTY) LTD",
+      "email": "contact.bcontech@gmail.com",
+      "website": "https://www.bcontech.co.za"
+    },
+    "services": [
+      {"title":"Systems Integration","desc":"Design and implement reliable integrations between your core systems."},
+      {"title":"Strategic IT Consulting","desc":"Creating a long-term IT strategy aligned with business goals."},
+      {"title":"IT Resource Consulting","desc":"Providing the right IT experts, exactly when you need them, to drive success and fuel your business growth."}
+    ]
+  }
+  </script>
+
+  <script>
+    // Populate services from JSON for easy editing
+    (function(){
+      try{
+        const data = JSON.parse(document.getElementById('site-data').textContent);
+        document.querySelector('header h1').textContent = (data.company && data.company.name) || 'BCON TECH';
+        const grid = document.getElementById('services-grid');
+        grid.innerHTML = '';
+        data.services.forEach(s => {
+          const card = document.createElement('div');
+          card.className = 'service-card';
+          card.innerHTML = `<h3>${s.title}</h3><p>${s.desc}</p>`;
+          grid.appendChild(card);
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+      }catch(e){console.warn('Failed to load site data',e)}
+    })();
+
+    // Smooth scrolling for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    });
+  </script>
+</body>
+</html>
